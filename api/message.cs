@@ -18,18 +18,18 @@ namespace Company.Function
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
+   return new JsonResult(new { text = "Hello from the API" });
+            //string name = req.Query["name"];
 
-            string name = req.Query["name"];
+           // string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+           // dynamic data = JsonConvert.DeserializeObject(requestBody);
+           // name = name ?? data?.name;
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            //string responseMessage = string.IsNullOrEmpty(name)
+             //   ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+            //    : $"Hello from the API.";
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello from the API.";
-
-            return new OkObjectResult(responseMessage);
+            //return new OkObjectResult(responseMessage);
         }
     }
 }
